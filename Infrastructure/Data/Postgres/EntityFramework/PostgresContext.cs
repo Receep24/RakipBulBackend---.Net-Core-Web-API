@@ -32,6 +32,16 @@ public class PostgresContext : DbContext
         }
     }
 
+    public DbSet<Adress> Adress => Set<Adress>();
+    public DbSet<Advert> Advert => Set<Advert>();
+    public DbSet<Cities> Cities => Set<Cities>();
+    public DbSet<Comment> Comment => Set<Comment>();
+    public DbSet<Contact> Contact => Set<Contact>();
+    public DbSet<Districts> Districts => Set<Districts>();
+    public DbSet<Events> Events => Set<Events>();
+    public DbSet<Offer> Offer => Set<Offer>();
+    public DbSet<Point> Point => Set<Point>();
+    public DbSet<Sports> Sports => Set<Sports>();
     public DbSet<User> User => Set<User>();
     public DbSet<UserToken> UserTokens => Set<UserToken>();
 }

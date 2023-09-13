@@ -1,22 +1,56 @@
 ﻿using Infrastructure.Data.Postgres.Entities;
+using Infrastructure.Data.Postgres.EntityFramework.Configurations.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.Postgres.EntityFramework.Configurations;
 
-public class UserConfiguration : IEntityTypeConfiguration<User>
+public class UserConfiguration : BaseConfiguration<User,int>
 {
-    public void Configure(EntityTypeBuilder<User> builder)
+    public override void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.HasKey(x => x.Id);
-        builder.Property(x => x.Email).IsRequired();
-        builder.HasIndex(x => x.Email).IsUnique();
-        builder.Property(x => x.UserName).IsRequired();
-        builder.HasIndex(x => x.UserName).IsUnique();
-        builder.Property(x => x.FullName).IsRequired();
-        builder.Property(x => x.PasswordHash).IsRequired();
-        builder.Property(x => x.PasswordSalt).IsRequired();
-        builder.Property(x => x.CreatedAt).IsRequired();
-        builder.Property(x => x.IsDeleted).IsRequired();
+         base.Configure(builder);
+
+        builder.Property(u => u.Email).IsRequired();
+        builder.Property(u => u.UserName).IsRequired();
+        builder.Property(u => u.FirstName).IsRequired();
+        builder.Property(u => u.LastName).IsRequired();
+        builder.Property(u => u.Age).IsRequired();
+        builder.Property(u => u.PasswordSalt).IsRequired();
+        builder.Property(u => u.PasswordHash).IsRequired();
+        builder.Property(u => u.UserType).IsRequired();
+        builder.Property(u => u.Gender).IsRequired();
+
+        builder.HasOne(u => u.Contact)
+            .WithOne(c => c.User)
+            .HasForeignKey<Contact>(c => c.Id)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(u => u.Points)
+            .WithOne(p => p.User)
+            .HasForeignKey(p => p.UserID)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(u => u.Comments)
+            .WithOne(c => c.User)
+            .HasForeignKey(c => c.UserID)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(u => u.Contacts)
+            .WithOne(c => c.User)
+            .HasForeignKey(c => c.UserID)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(u => u.Adverts)
+            .WithOne(a => a.User)
+            .HasForeignKey(a => a.UserID)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(u => u.Offers)
+            .WithOne(o => o.User)
+            .HasForeignKey(o => o.UserID)
+            .OnDelete(DeleteBehavior.Cascade);
+ 
+
     }
 }
