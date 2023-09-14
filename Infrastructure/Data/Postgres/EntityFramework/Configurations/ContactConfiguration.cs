@@ -1,26 +1,29 @@
 ﻿using Infrastructure.Data.Postgres.Entities;
+using Infrastructure.Data.Postgres.EntityFramework.Configurations.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Data.Postgres.EntityFramework.Configurations
 {
-    public class ContactConfiguration : IEntityTypeConfiguration<Contact>
+    public class ContactConfiguration : BaseConfiguration<Contact,int>
     {
-        public void Configure(EntityTypeBuilder<Contact> builder)
-        {
-            builder.HasKey(a => a.Id);
-            builder.Property(a => a.Id).ValueGeneratedOnAdd();
-            builder.Property(a => a.CreatedAt).IsRequired();
-            builder.Property(a => a.UpdatedAt);
-            builder.Property(a => a.IsDeleted).IsRequired();
+        public override void Configure(EntityTypeBuilder<Contact> builder)
+        {     
+            base.Configure(builder);
             builder.Property(a => a.Email).IsRequired();
             builder.Property(a => a.PhoneNumber).IsRequired();
+            builder.Property(a => a.UserID).IsRequired();
 
+            
+            builder.Property(c => c.Email)
+                .IsRequired();
+            builder.Property(c => c.PhoneNumber)
+                .IsRequired();
+            
+            builder.HasOne(c => c.User)
+                .WithMany(u => u.Contacts)
+                .HasForeignKey(c => c.UserID)
+                .OnDelete(DeleteBehavior.Cascade);
 
 
         }

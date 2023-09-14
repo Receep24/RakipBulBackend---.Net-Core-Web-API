@@ -17,7 +17,16 @@ public class PostgresContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        
+        modelBuilder.ApplyConfiguration(new AdressConfiguration());
+        modelBuilder.ApplyConfiguration(new AdvertConfiguration());
+        modelBuilder.ApplyConfiguration(new CitiesConfiguration());
+        modelBuilder.ApplyConfiguration(new CommentConfiguration());
+        modelBuilder.ApplyConfiguration(new ContactConfiguration());
+        modelBuilder.ApplyConfiguration(new DistrictsConfiguration());
+        modelBuilder.ApplyConfiguration(new EventsConfiguration());
+        modelBuilder.ApplyConfiguration(new OfferConfiguration());
+        modelBuilder.ApplyConfiguration(new PointConfiguration());
+        modelBuilder.ApplyConfiguration(new SportsConfiguration());
         modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new UserTokenConfiguration());
     }
@@ -44,4 +53,6 @@ public class PostgresContext : DbContext
     public DbSet<Sports> Sports => Set<Sports>();
     public DbSet<User> User => Set<User>();
     public DbSet<UserToken> UserTokens => Set<UserToken>();
+    public DbSet<UserEvents> UserEvents =>Set<UserEvents>();
+
 }

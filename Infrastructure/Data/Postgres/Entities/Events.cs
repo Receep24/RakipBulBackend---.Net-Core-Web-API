@@ -1,9 +1,5 @@
 ﻿using Infrastructure.Data.Postgres.Entities.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Infrastructure.Data.Postgres.Entities
 {
@@ -16,10 +12,10 @@ namespace Infrastructure.Data.Postgres.Entities
         public int AdressID { get; set; }
 
         public Sports Sports { get; set; }
-        public User User { get; set; }
         public Adress Adress { get; set; }
 
         public IList<Point> Points { get; set; }
         public IList<Comment> Comments { get; set; }
+        public IList<User> Users { get; set; }
     }
 }

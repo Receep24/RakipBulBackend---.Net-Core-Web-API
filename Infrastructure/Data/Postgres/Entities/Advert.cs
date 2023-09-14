@@ -19,7 +19,7 @@ namespace Infrastructure.Data.Postgres.Entities
         
 
         public User User { get; set; }
-        public Sport Sport { get; set; }
+        public Sports Sport { get; set; }
         public Adress Adress { get; set; }
        
 
