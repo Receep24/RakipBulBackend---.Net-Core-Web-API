@@ -10,7 +10,7 @@ public class UserConfiguration : BaseConfiguration<User,int>
     public override void Configure(EntityTypeBuilder<User> builder)
     {
          base.Configure(builder);
-        builder.Ignore(u => u.Contacts);
+        builder.Ignore(i => i.ContactID);
         builder.Property(u => u.Email).IsRequired();
         builder.Property(u => u.UserName).IsRequired();
         builder.Property(u => u.FirstName).IsRequired();
@@ -22,9 +22,9 @@ public class UserConfiguration : BaseConfiguration<User,int>
         builder.Property(u => u.Gender).IsRequired();
 
         builder.HasOne(u => u.Contact)
-           .WithOne(c => c.User)
-           .HasForeignKey<Contact>(c => c.UserID)
-           .OnDelete(DeleteBehavior.Cascade);
+          .WithOne(c => c.User)
+          .HasForeignKey<User>(u => u.ContactID)
+          .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasMany(u => u.Points)
             .WithOne(p => p.User)
@@ -36,10 +36,6 @@ public class UserConfiguration : BaseConfiguration<User,int>
             .HasForeignKey(c => c.UserID)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasMany(u => u.Contacts)
-            .WithOne(c => c.User)
-            .HasForeignKey(c => c.UserID)
-            .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasMany(u => u.Adverts)
             .WithOne(a => a.User)

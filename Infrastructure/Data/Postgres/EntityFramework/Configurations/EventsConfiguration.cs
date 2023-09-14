@@ -15,13 +15,9 @@ namespace Infrastructure.Data.Postgres.EntityFramework.Configurations
         public override void Configure(EntityTypeBuilder<Events> builder)
         {
             base.Configure(builder);
-            builder.Property(e => e.EventName)
-                   .HasMaxLength(100)
+            builder.Property(e => e.EventName)                   
                    .IsRequired();
-
-
-            builder.Property(e => e.EventDate);
-                   
+            builder.Property(e => e.EventDate);                   
 
             builder.HasOne(e => e.Sports)
                    .WithMany(s => s.Events)
