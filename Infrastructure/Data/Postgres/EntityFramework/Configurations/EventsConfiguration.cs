@@ -1,0 +1,46 @@
+﻿using Infrastructure.Data.Postgres.Entities;
+using Infrastructure.Data.Postgres.EntityFramework.Configurations.Base;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Infrastructure.Data.Postgres.EntityFramework.Configurations
+{
+    public class EventsConfiguration : BaseConfiguration<Events, int>
+    {
+        public override void Configure(EntityTypeBuilder<Events> builder)
+        {
+            base.Configure(builder);
+            builder.Property(e => e.EventName)
+                   .HasMaxLength(100)
+                   .IsRequired();
+
+
+            builder.Property(e => e.EventDate);
+                   
+
+            builder.HasOne(e => e.Sports)
+                   .WithMany(s => s.Events)
+                   .HasForeignKey(e => e.SportID)
+                   .OnDelete(DeleteBehavior.Restrict); 
+
+            builder.HasMany(e => e.Users)
+                   .WithMany(u => u.ParticipatedEvents)
+                   .UsingEntity<UserEvents>();
+
+            builder.HasOne(e => e.Adress)
+                   .WithMany(a => a.Events)
+                   .HasForeignKey(e => e.AdressID)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasMany(e => e.Points)
+                   .WithOne(p => p.Events)
+                   .HasForeignKey(p => p.EventID);
+
+        }
+    }
+}

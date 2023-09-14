@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data.Postgres.EntityFramework.Configurations.Base
 {
-    public abstract class BaseConfiguration<TEntity,TId> : IEntityTypeConfiguration<TEntity> where TEntity : Entity<TId>
-    {      
-
-        public void Configure(EntityTypeBuilder<TEntity> builder)
+    public abstract class BaseConfiguration<TEntity, TId> : IEntityTypeConfiguration<TEntity> where TEntity : Entity<TId>
+    {
+        public virtual void Configure(EntityTypeBuilder<TEntity> builder)
         {
             builder.HasKey(a => a.Id);
             builder.Property(a => a.Id).ValueGeneratedOnAdd();
@@ -22,3 +21,4 @@ namespace Infrastructure.Data.Postgres.EntityFramework.Configurations.Base
         }
     }
 }
+

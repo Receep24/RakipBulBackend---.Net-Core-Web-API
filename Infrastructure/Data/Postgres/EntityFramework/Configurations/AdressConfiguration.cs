@@ -16,7 +16,7 @@ namespace Infrastructure.Data.Postgres.EntityFramework.Configurations
     {
         public override void Configure(EntityTypeBuilder<Adress> builder)
         {            
-
+            base.Configure(builder);
             
             builder.Property(a => a.CityId).IsRequired();
             builder.Property(a => a.DistrictId).IsRequired();
