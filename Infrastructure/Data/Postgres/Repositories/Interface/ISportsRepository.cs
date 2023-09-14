@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data.Postgres.Repositories.Interface
 {
-    internal interface ISportsRepository:IRepository<Sports,int>
+    public interface ISportsRepository:IRepository<Sports,int>
     {
     }
 }

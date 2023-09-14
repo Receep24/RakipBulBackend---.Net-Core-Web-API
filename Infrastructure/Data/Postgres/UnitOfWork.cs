@@ -11,6 +11,16 @@ public class UnitOfWork : IUnitOfWork
 {
     private readonly PostgresContext _postgresContext;
 
+    private AdressRepository _adressRepository;
+    private AdvertRepository _advertRepositort;
+    private CitiesRepository _citiesRepository;
+    private CommentRepository _commentRepository;
+    private ContactRepository _contactRepository;
+    private DistrictsRepository _distritsRepository;
+    private EventsRepository _eventsRepository;
+    private OfferRepository _offerRepository;
+    private PointRepository _pointRepository;
+    private SportsRepository _sportRepository;
     private UserRepository? _userRepository;
     private UserTokenRepository? _userTokenRepository;
 
@@ -21,6 +31,26 @@ public class UnitOfWork : IUnitOfWork
 
     public IUserRepository Users => _userRepository ??= new UserRepository(_postgresContext);
     public IUserTokenRepository UserTokens => _userTokenRepository ??= new UserTokenRepository(_postgresContext);
+
+    public IAdressRepository Adress =>_adressRepository ??= new AdressRepository(_postgresContext);
+
+    public IAdvertRepository Advert => _advertRepositort ??= new AdvertRepository(_postgresContext);    
+
+    public ICitiesRepository Cities =>_citiesRepository ??= new CitiesRepository(_postgresContext);
+
+    public ICommentRepository Comment => _commentRepository ??= new CommentRepository(_postgresContext);    
+
+    public IContactRepository Contact => _contactRepository  ??= new ContactRepository(_postgresContext);    
+
+    public IDistrictsRepository Districts => _distritsRepository ??= new DistrictsRepository(_postgresContext);
+
+    public IEventsRepository Events => _eventsRepository ??= new EventsRepository(_postgresContext);    
+
+    public IOfferRepository Offer => _offerRepository ??= new OfferRepository(_postgresContext);
+
+    public IPointRepository Point => _pointRepository ??= new PointRepository(_postgresContext);    
+
+    public ISportsRepository Sports => _sportRepository ??new SportsRepository(_postgresContext);
 
     public async Task<int> CommitAsync()
     {
