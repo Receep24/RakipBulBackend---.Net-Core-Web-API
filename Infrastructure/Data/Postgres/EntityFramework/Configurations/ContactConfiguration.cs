@@ -12,20 +12,11 @@ namespace Infrastructure.Data.Postgres.EntityFramework.Configurations
             base.Configure(builder);
             builder.Property(a => a.Email).IsRequired();
             builder.Property(a => a.PhoneNumber).IsRequired();
-            builder.Property(a => a.UserID).IsRequired();
 
-            
-            builder.Property(c => c.Email)
-                .IsRequired();
-            builder.Property(c => c.PhoneNumber)
-                .IsRequired();
-            
             builder.HasOne(c => c.User)
-                .WithMany(u => u.Contacts)
-                .HasForeignKey(c => c.UserID)
-                .OnDelete(DeleteBehavior.Cascade);
-
-
+                .WithOne(u => u.Contact)
+                .HasForeignKey<Contact>(c => c.UserID)
+                .IsRequired();
         }
     }
 }

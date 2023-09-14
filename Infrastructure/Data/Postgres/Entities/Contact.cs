@@ -13,8 +13,8 @@ namespace Infrastructure.Data.Postgres.Entities
         public string Email { get; set; } = default!;
         public string PhoneNumber { get; set; } = default!;
 
-        public int UserID { get; set; }
         public User User { get; set; }
+        public int UserID { get; set; }
 
     }
 }

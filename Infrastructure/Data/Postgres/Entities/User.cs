@@ -16,9 +16,10 @@ public class User : Entity<int>
     public Gender Gender { get; set; }
 
     public Contact Contact { get; set; }
+    public int ContactID { get; set; }
+
     public IList<Point> Points { get; set; }
     public IList<Comment> Comments { get; set; }
-    public IList<Contact> Contacts { get; set; }
     public IList<Advert> Adverts { get; set; }
     public IList<Offer> Offers { get; set; }
     public IList<Events> ParticipatedEvents { get; set; }
