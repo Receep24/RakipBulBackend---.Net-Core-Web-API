@@ -15,7 +15,6 @@ public class UnitOfWork : IUnitOfWork
     private AdvertRepository _advertRepositort;
     private CitiesRepository _citiesRepository;
     private CommentRepository _commentRepository;
-    private ContactRepository _contactRepository;
     private DistrictsRepository _distritsRepository;
     private EventsRepository _eventsRepository;
     private OfferRepository _offerRepository;
@@ -38,10 +37,7 @@ public class UnitOfWork : IUnitOfWork
 
     public ICitiesRepository Cities =>_citiesRepository ??= new CitiesRepository(_postgresContext);
 
-    public ICommentRepository Comment => _commentRepository ??= new CommentRepository(_postgresContext);    
-
-    public IContactRepository Contact => _contactRepository  ??= new ContactRepository(_postgresContext);    
-
+    public ICommentRepository Comment => _commentRepository ??= new CommentRepository(_postgresContext); 
     public IDistrictsRepository Districts => _distritsRepository ??= new DistrictsRepository(_postgresContext);
 
     public IEventsRepository Events => _eventsRepository ??= new EventsRepository(_postgresContext);    

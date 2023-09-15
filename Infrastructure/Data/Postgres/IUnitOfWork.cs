@@ -9,7 +9,6 @@ public interface IUnitOfWork : IDisposable
     ICitiesRepository Cities { get; }
     ICommentRepository Comment { get; }
     
-    IContactRepository Contact { get; }
     IDistrictsRepository Districts { get; }
     IEventsRepository Events { get; }
     IOfferRepository Offer { get; }

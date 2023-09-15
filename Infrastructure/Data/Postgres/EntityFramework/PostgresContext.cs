@@ -21,7 +21,7 @@ public class PostgresContext : DbContext
         modelBuilder.ApplyConfiguration(new AdvertConfiguration());
         modelBuilder.ApplyConfiguration(new CitiesConfiguration());
         modelBuilder.ApplyConfiguration(new CommentConfiguration());
-        modelBuilder.ApplyConfiguration(new ContactConfiguration());
+    
         modelBuilder.ApplyConfiguration(new DistrictsConfiguration());
         modelBuilder.ApplyConfiguration(new EventsConfiguration());
         modelBuilder.ApplyConfiguration(new OfferConfiguration());
@@ -45,7 +45,6 @@ public class PostgresContext : DbContext
     public DbSet<Advert> Advert => Set<Advert>();
     public DbSet<Cities> Cities => Set<Cities>();
     public DbSet<Comment> Comment => Set<Comment>();
-    public DbSet<Contact> Contact => Set<Contact>();
     public DbSet<Districts> Districts => Set<Districts>();
     public DbSet<Events> Events => Set<Events>();
     public DbSet<Offer> Offer => Set<Offer>();

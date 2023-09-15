@@ -9,14 +9,12 @@ public class User : Entity<int>
     public string FirstName { get; set; } = default!;
     public string LastName { get; set; } = default!;
     public int Age { get; set; } = default!;
-
+    public string UserImage { get; set;} = default!;
+    public string PhoneNumber { get; set; } = default!;
     public byte[] PasswordSalt { get; set; } = default!;
     public byte[] PasswordHash { get; set; } = default!;
     public UserType UserType { get; set; }
     public Gender Gender { get; set; }
-
-    public Contact Contact { get; set; }
-    public int ContactID { get; set; }
 
     public IList<Point> Points { get; set; }
     public IList<Comment> Comments { get; set; }
