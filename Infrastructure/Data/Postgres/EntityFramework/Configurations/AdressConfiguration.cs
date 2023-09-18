@@ -12,15 +12,15 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data.Postgres.EntityFramework.Configurations
 {
-    public class AdressConfiguration : BaseConfiguration<Adress,int>
+    public class AdressConfiguration : BaseConfiguration<Adress, int>
     {
         public override void Configure(EntityTypeBuilder<Adress> builder)
-        {            
+        {
             base.Configure(builder);
-            
+            builder.Property(a => a.AdressName).IsRequired();
             builder.Property(a => a.CityId).IsRequired();
             builder.Property(a => a.DistrictId).IsRequired();
-          
+
 
             builder.HasOne(a => a.City)
                 .WithMany(c => c.Addresses)

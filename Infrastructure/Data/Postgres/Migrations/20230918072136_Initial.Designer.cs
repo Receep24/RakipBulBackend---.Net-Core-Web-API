@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Data.Postgres.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    [Migration("20230914082400_Initial")]
+    [Migration("20230918072136_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -32,6 +32,10 @@ namespace Infrastructure.Data.Postgres.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AdressName")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("CityId")
                         .HasColumnType("integer");
@@ -149,39 +153,6 @@ namespace Infrastructure.Data.Postgres.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("Comment");
-                });
-
-            modelBuilder.Entity("Infrastructure.Data.Postgres.Entities.Contact", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Contact");
                 });
 
             modelBuilder.Entity("Infrastructure.Data.Postgres.Entities.Districts", b =>
@@ -361,9 +332,6 @@ namespace Infrastructure.Data.Postgres.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("integer");
 
-                    b.Property<int>("ContactID")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -393,8 +361,16 @@ namespace Infrastructure.Data.Postgres.Migrations
                         .IsRequired()
                         .HasColumnType("bytea");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("UserImage")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -404,9 +380,6 @@ namespace Infrastructure.Data.Postgres.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ContactID")
-                        .IsUnique();
 
                     b.ToTable("User");
                 });
@@ -577,17 +550,6 @@ namespace Infrastructure.Data.Postgres.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Infrastructure.Data.Postgres.Entities.User", b =>
-                {
-                    b.HasOne("Infrastructure.Data.Postgres.Entities.Contact", "Contact")
-                        .WithOne("User")
-                        .HasForeignKey("Infrastructure.Data.Postgres.Entities.User", "ContactID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Contact");
-                });
-
             modelBuilder.Entity("Infrastructure.Data.Postgres.Entities.UserEvents", b =>
                 {
                     b.HasOne("Infrastructure.Data.Postgres.Entities.Events", "Event")
@@ -635,12 +597,6 @@ namespace Infrastructure.Data.Postgres.Migrations
                     b.Navigation("Addresses");
 
                     b.Navigation("Districts");
-                });
-
-            modelBuilder.Entity("Infrastructure.Data.Postgres.Entities.Contact", b =>
-                {
-                    b.Navigation("User")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Infrastructure.Data.Postgres.Entities.Districts", b =>

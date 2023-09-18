@@ -26,24 +26,6 @@ namespace Infrastructure.Data.Postgres.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Contact",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Email = table.Column<string>(type: "text", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
-                    UserID = table.Column<int>(type: "integer", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Contact", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Sports",
                 columns: table => new
                 {
@@ -58,6 +40,32 @@ namespace Infrastructure.Data.Postgres.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sports", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "User",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    UserName = table.Column<string>(type: "text", nullable: false),
+                    FirstName = table.Column<string>(type: "text", nullable: false),
+                    LastName = table.Column<string>(type: "text", nullable: false),
+                    Age = table.Column<int>(type: "integer", nullable: false),
+                    UserImage = table.Column<string>(type: "text", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
+                    PasswordSalt = table.Column<byte[]>(type: "bytea", nullable: false),
+                    PasswordHash = table.Column<byte[]>(type: "bytea", nullable: false),
+                    UserType = table.Column<int>(type: "integer", nullable: false),
+                    Gender = table.Column<int>(type: "integer", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -81,32 +89,20 @@ namespace Infrastructure.Data.Postgres.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "UserTokens",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Email = table.Column<string>(type: "text", nullable: false),
-                    UserName = table.Column<string>(type: "text", nullable: false),
-                    FirstName = table.Column<string>(type: "text", nullable: false),
-                    LastName = table.Column<string>(type: "text", nullable: false),
-                    Age = table.Column<int>(type: "integer", nullable: false),
-                    PasswordSalt = table.Column<byte[]>(type: "bytea", nullable: false),
-                    PasswordHash = table.Column<byte[]>(type: "bytea", nullable: false),
-                    UserType = table.Column<int>(type: "integer", nullable: false),
-                    Gender = table.Column<int>(type: "integer", nullable: false),
-                    ContactID = table.Column<int>(type: "integer", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
+                    Token = table.Column<string>(type: "text", nullable: false),
+                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    ValidUntil = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_UserTokens", x => x.Token);
                     table.ForeignKey(
-                        name: "FK_User_Contact_ContactID",
-                        column: x => x.ContactID,
-                        principalTable: "Contact",
+                        name: "FK_UserTokens_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -117,6 +113,7 @@ namespace Infrastructure.Data.Postgres.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    AdressName = table.Column<string>(type: "text", nullable: false),
                     CityId = table.Column<int>(type: "integer", nullable: false),
                     DistrictId = table.Column<int>(type: "integer", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -138,25 +135,6 @@ namespace Infrastructure.Data.Postgres.Migrations
                         principalTable: "Districts",
                         principalColumn: "DistrictId",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserTokens",
-                columns: table => new
-                {
-                    Token = table.Column<string>(type: "text", nullable: false),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    ValidUntil = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserTokens", x => x.Token);
-                    table.ForeignKey(
-                        name: "FK_UserTokens_User_UserId",
-                        column: x => x.UserId,
-                        principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -413,12 +391,6 @@ namespace Infrastructure.Data.Postgres.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_User_ContactID",
-                table: "User",
-                column: "ContactID",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_UserEvents_UserID",
                 table: "UserEvents",
                 column: "UserID");
@@ -461,9 +433,6 @@ namespace Infrastructure.Data.Postgres.Migrations
 
             migrationBuilder.DropTable(
                 name: "Sports");
-
-            migrationBuilder.DropTable(
-                name: "Contact");
 
             migrationBuilder.DropTable(
                 name: "Districts");

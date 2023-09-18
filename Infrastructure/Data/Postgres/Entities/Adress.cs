@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 namespace Infrastructure.Data.Postgres.Entities
 {
     public class Adress:Entity<int>
-    {
-  
+    {  
+        public string AdressName { get; set; }
+
         public int CityId { get; set; }
         public int DistrictId { get; set; }       
         

@@ -30,6 +30,10 @@ namespace Infrastructure.Data.Postgres.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AdressName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<int>("CityId")
                         .HasColumnType("integer");
 
