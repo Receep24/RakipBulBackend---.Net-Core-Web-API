@@ -10,6 +10,7 @@ namespace Infrastructure.Data.Postgres.Entities
     public class Point : Entity<int>
     {
         public int Points { get; set; }
+
         public int UserID {get;set;}
         public int EventID {get;set; }
 

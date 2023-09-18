@@ -1,4 +1,4 @@
-﻿namespace Business.Models.Request;
+﻿namespace Business.Models.Request.Create;
 
 public class RegisterDto
 {

@@ -1,4 +1,4 @@
-﻿using Business.Models.Request;
+﻿using Business.Models.Request.Create;
 using Business.Models.Response;
 using Infrastructure.Data.Postgres.Entities;
 

@@ -7,6 +7,7 @@ namespace Infrastructure.Data.Postgres.Entities
     {
         public string EventName { get; set; }
         public DateTime EventDate { get; set; }
+
         public int SportID { get; set; }
         public int UserID { get; set; }
         public int AdressID { get; set; }

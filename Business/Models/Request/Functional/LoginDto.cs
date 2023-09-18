@@ -1,4 +1,4 @@
-﻿namespace Business.Models.Request;
+﻿namespace Business.Models.Request.Functional;
 
 public class LoginDto
 {

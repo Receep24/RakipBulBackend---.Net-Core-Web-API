@@ -9,4 +9,5 @@ public class UserProfileDto
     public string FullName { get; set; } = default!;
     public string Email { get; set; } = default!;
     public UserType UserType { get; set; }
+    public Gender Gender { get; set; } 
 }
