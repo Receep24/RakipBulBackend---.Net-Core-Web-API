@@ -2,10 +2,7 @@
 using Infrastructure.Data.Postgres.EntityFramework.Configurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using CsvHelper;
-using CsvHelper.Configuration;
-using System.Globalization;
-using System.IO;
+
 
 namespace Infrastructure.Data.Postgres.EntityFramework;
 
@@ -117,21 +114,13 @@ public class PostgresContext : DbContext
               new Cities { CityId = 80, CityName = "Osmaniye" },
               new Cities { CityId = 81, CityName = "Düzce" }
               );
-
-
-
-
-
-
-
-
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
 
-        if (_configuration[EnvironmentAlias] == DEV)
+        if (_configuration["EnvironmentAlias"] == "DEV")
         {
             optionsBuilder.LogTo(Console.Write);
         }
