@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Business.Models.Request.Update
 {
-    internal class UpdateEventDto
+    public class UpdateEventDto
     {
+        public string EventName { get; set; }
+        public DateTime EventDate { get; set; }
+
     }
 }
