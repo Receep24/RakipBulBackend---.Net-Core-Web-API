@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Models.Request.Update
+namespace Business.Services.Interface
 {
-    public class UpdateAdvertDto
+    internal class IProfileService
     {
-        public string AdvertText { get; set; }
-
     }
 }

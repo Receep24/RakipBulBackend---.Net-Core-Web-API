@@ -9,7 +9,7 @@ namespace Infrastructure.Data.Postgres.Entities
 {
     public class Sports:Entity<int>
     {
-        public int SportName { get; set; }
+        public string SportName { get; set; }
         public string SportImage { get; set; }
 
         public IList<Events> Events { get; set; }   

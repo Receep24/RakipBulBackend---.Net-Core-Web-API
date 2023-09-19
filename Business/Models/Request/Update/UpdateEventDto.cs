@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Models.Request.Update
 {
-    public class UpdateAdvertDto
+    internal class UpdateEventDto
     {
-        public string AdvertText { get; set; }
-
     }
 }
