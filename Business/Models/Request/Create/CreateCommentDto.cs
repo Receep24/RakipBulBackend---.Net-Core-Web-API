@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Business.Models.Request.Create
 {
-    public class CreateOfferDto
+    public class CreateCommentDto
     {
-        public string OfferText { get; set; }
+        public string CommentText { get; set; }
 
-        public int AdvertID { get; set; }
         public int UserID { get; set; }
+        public int EventID { get; set; }
     }
 }

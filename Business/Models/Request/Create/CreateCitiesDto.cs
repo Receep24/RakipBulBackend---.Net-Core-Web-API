@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Business.Models.Request.Create
 {
-    public class CreateOfferDto
+    public class CreateCitiesDto
     {
-        public string OfferText { get; set; }
-
-        public int AdvertID { get; set; }
-        public int UserID { get; set; }
+        public int CityId { get; set; }
+        public string CityName { get; set; }
     }
 }
