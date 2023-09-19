@@ -1,3 +1,4 @@
-dotnet ef migrations add Initial --startup-project .\src\Web\ --project .\src\Infrastructure\ -o Data\Postgres\Migrations
+dotnet ef migrations add Initial --startup-project .\Web\ --project .\Infrastructure\ -o Data\Postgres\Migrations
 
-dotnet ef database update --startup-project .\src\Web\ --project .\src\Infrastructure\
+
+dotnet ef database update --startup-project .\Web\ --project .\Infrastructure\

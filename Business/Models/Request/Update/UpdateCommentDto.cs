@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Models.Request.Create
+namespace Business.Models.Request.Update
 {
-    public class CreateOfferDto
+    public class UpdateCommentDto
     {
-        public string OfferText { get; set; }
+        public string CommentText { get; set; }
 
-
-        public int AdvertID { get; set; }
         public int UserID { get; set; }
-
+      
     }
 }

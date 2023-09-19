@@ -1,4 +1,5 @@
 ﻿using Core.Utilities.Pagination;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 
@@ -9,9 +10,12 @@ public interface IRepository<TEntity, in TId> where TEntity : class
     Task AddAsync(TEntity entity);
     Task AddRangeAsync(IEnumerable<TEntity> entities);
     Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> filter);
+    Task<TEntity> GetByIdAsync(TId id);
     Task<IList<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>>? filter = null);
     Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> filter);
     Task<int> GetCountAsync(Expression<Func<TEntity, bool>>? filter = null);
+    Task RemoveAsync(TEntity entity);
+    Task RemoveByIdAsync(TId id);
     void Remove(TEntity entity);
     void RemoveById(TId id);
     void RemoveRange(IEnumerable<TEntity> entities);
