@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Business.Models.Request.Update
 {
-    public class UpdateAdvertDto
+    public class CommentUpdateDTO
     {
-        public string AdvertText { get; set; }
-
+        public string CommentText { get; set; }
+        public int UserID { get; set; }
+        public int EventID { get; set; }
     }
 }
