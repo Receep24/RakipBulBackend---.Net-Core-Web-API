@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 
 namespace Business.Services
 {
-    public class OfferService : BaseService<Offer, OfferInfoDto, int>,IOfferService
+    public class PointService : BaseService<Point, PointInfoDto, int>, IPointService
     {
-        public OfferService(IMapperHelper mapperHelper, IRepository<Offer, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public PointService(IMapperHelper mapperHelper, IRepository<Point, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
         {
         }
     }

@@ -1,7 +1,9 @@
 ﻿using Business.Models.Response;
 using Business.Services.Base;
+using Business.Services.Base.Interface;
 using Business.Services.Interface;
 using Business.Utilities.Mapping.Interface;
+using Core.Results;
 using Infrastructure.Data.Postgres;
 using Infrastructure.Data.Postgres.Entities;
 using Infrastructure.Data.Postgres.Repositories.Base.Interface;
@@ -13,11 +15,20 @@ using System.Threading.Tasks;
 
 namespace Business.Services
 {
-    public class AdvertService : BaseService<Advert, ShowAdvertsDto, int>,IAdvertService
+    public class AdvertService : BaseService<Advert, AdvertInfoDto, int>, IAdvertService
     {
         public AdvertService(IMapperHelper mapperHelper, IRepository<Advert, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
         {
+        }
 
+        Task<DataResult<IList<AdressInfoDto>>> IBaseService<Advert, AdressInfoDto, int>.GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<DataResult<AdressInfoDto>> IBaseService<Advert, AdressInfoDto, int>.GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

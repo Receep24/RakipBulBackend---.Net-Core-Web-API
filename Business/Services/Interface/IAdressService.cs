@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Services.Interface
 {
-    public interface IOfferService : IBaseService<Offer, OfferInfoDto, int> { 
-
+    public interface IAdressService : IBaseService<Adress,AdressInfoDto,int>
+    {
     }
 }

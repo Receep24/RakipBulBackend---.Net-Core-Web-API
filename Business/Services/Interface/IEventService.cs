@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Services.Interface
 {
-    public interface IEventService : IBaseService<Events, ShowEventsDto, int>
+    public interface IEventService : IBaseService<Events, EventsInfoDto, int>
     {
     }
 }

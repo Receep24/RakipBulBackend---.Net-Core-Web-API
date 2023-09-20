@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Business.Services
 {
-    public class EventService : BaseService<Events, ShowEventsDto, int>,IEventService
+    public class EventService : BaseService<Events, EventsInfoDto, int>,IEventService
     {
         public EventService(IMapperHelper mapperHelper, IRepository<Events, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
         {
