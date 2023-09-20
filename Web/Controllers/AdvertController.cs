@@ -9,9 +9,9 @@ using Web.Controllers.Base;
 
 namespace Web.Controllers
 {
-    public class AdvertController : BaseCRUDController<Advert, int, CreateAdvertDto, UpdateAdvertDto, ShowAdvertsDto>
+    public class AdvertController : BaseCRUDController<Advert, int, CreateAdvertDto, AdvertUpdateDTO, AdvertInfoDto>
     {
-        public AdvertController(IBaseService<Advert, ShowAdvertsDto, int> service) : base(service)
+        public AdvertController(IBaseService<Advert, AdvertInfoDto, int> service) : base(service)
         {
         }
     }
