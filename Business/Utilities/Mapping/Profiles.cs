@@ -13,27 +13,46 @@ public class Profiles : AutoMapper.Profile
         CreateMap<RegisterDto, User>();
         CreateMap<CreateAdressDto, User>();
         CreateMap<CreateAdvertDto, User>();
+        CreateMap<CreateCitiesDto, User>();
         CreateMap<CreateCommentDto, User>();
+        CreateMap<CreateDistrictsDto, User>();
         CreateMap<CreateEventDto, User>();
         CreateMap<CreateOfferDto, User>();
+        CreateMap<CreatePointDto, User>();
+        CreateMap<CreateSportsDto, User>();
+        CreateMap<CreateUserEvent, User>();
+       
 
         //update                                                         
-        CreateMap<UpdateAdressDto, User>();
-        CreateMap<UpdateAdvertDto, User>();
-        CreateMap<UpdateCommentDto, User>();
+        CreateMap<AdressUpdateDTO, User>();
+        CreateMap<AdvertUpdateDTO, User>();
+        CreateMap<CitiesUpdateDTO, User>();
+        CreateMap<CommentUpdateDTO, User>();
+        CreateMap<EventsUpdateDTO, User>();
+        CreateMap<OfferUpdateDTO, User>();
+        CreateMap<PointUpdateDTO, User>();
+        CreateMap<SportsUpdateDTO, User>();
+        CreateMap<UserEventUpdateDTO, User>();
         CreateMap<UserProfileUpdateDto, User>();
+      
 
 
         //responsse                                                      
+        CreateMap<User, AdressInfoDto>();
+        CreateMap<User, AdvertInfoDto>();
+        CreateMap<User, CitiesInfoDto>();
+        CreateMap<User, CommentInfoDto>();
+        CreateMap<User, DistrictsInfoDto>();
+        CreateMap<User, EventsInfoDto>();
+        CreateMap<User, OfferInfoDto>();
+        CreateMap<User, PointInfoDto>();
+        CreateMap<User, SportsInfoDto>();
+        CreateMap<User, UserEventsInfoDto>();
         CreateMap<User, UserProfileDto>();
-        CreateMap<User, UserAdvertsDto>();
-        CreateMap<User, UserEventsDto>();
-        CreateMap<User, ShowAdvertsDto>();
-        CreateMap<User, ShowEventsDto>();
-        CreateMap<User, ShowOfferDto>();
 
 
-        //
+
+       
 
     }
 }
