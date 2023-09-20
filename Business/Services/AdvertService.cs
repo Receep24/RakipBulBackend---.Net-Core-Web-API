@@ -20,15 +20,5 @@ namespace Business.Services
         public AdvertService(IMapperHelper mapperHelper, IRepository<Advert, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
         {
         }
-
-        Task<DataResult<IList<AdressInfoDto>>> IBaseService<Advert, AdressInfoDto, int>.GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<DataResult<AdressInfoDto>> IBaseService<Advert, AdressInfoDto, int>.GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

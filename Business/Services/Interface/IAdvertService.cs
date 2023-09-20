@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Services.Interface
 {
-    public interface IAdvertService:IBaseService<Advert,AdressInfoDto,int>
+    public interface IAdvertService : IBaseService<Advert, AdvertInfoDto, int>
     {
     }
 }

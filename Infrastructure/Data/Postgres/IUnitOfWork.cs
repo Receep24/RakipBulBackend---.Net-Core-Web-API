@@ -16,6 +16,7 @@ public interface IUnitOfWork : IDisposable
     IPointRepository Point { get; }
     ISportsRepository Sports { get; }
     IUserRepository Users { get; }
+    IUserEventsRepository UsersEvents { get; }
     IUserTokenRepository UserTokens { get; }
 
     Task<int> CommitAsync();

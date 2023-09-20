@@ -28,7 +28,7 @@ public static class DependencyInjection
         serviceCollection.AddScoped<IEventService, EventService>();
         serviceCollection.AddScoped<IOfferService, OfferService>();
         serviceCollection.AddScoped<IPointService, PointService>();
-        serviceCollection.AddScoped<IProfileService, ProfileService>();
+        serviceCollection.AddScoped<IProfileService, UserService>();
         serviceCollection.AddScoped<ISportsService, SportsService>();
         serviceCollection.AddScoped<IUserEventsService, UserEventsService>();
 

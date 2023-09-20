@@ -10,7 +10,7 @@ namespace Web.Controllers
 {
     public class CitiesController : BaseCRUDController<Cities, int, CreateCitiesDto, CitiesUpdateDTO, CitiesInfoDto>
     {
-        public CitiesController(IBaseService<Cities, CitiesInfoDto, CreateCitiesDto> service) : base(service)
+        public CitiesController(IBaseService<Cities, CitiesInfoDto, int> service) : base(service)
         {
         }
     }

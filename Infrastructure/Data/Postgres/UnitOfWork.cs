@@ -21,6 +21,7 @@ public class UnitOfWork : IUnitOfWork
     private PointRepository _pointRepository;
     private SportsRepository _sportRepository;
     private UserRepository? _userRepository;
+    private UserEventsRepository? _userEventsRepository;
     private UserTokenRepository? _userTokenRepository;
 
     public UnitOfWork(PostgresContext postgresContext)
@@ -47,6 +48,7 @@ public class UnitOfWork : IUnitOfWork
     public IPointRepository Point => _pointRepository ??= new PointRepository(_postgresContext);    
 
     public ISportsRepository Sports => _sportRepository ??new SportsRepository(_postgresContext);
+    public IUserEventsRepository UsersEvents => _userEventsRepository ?? new UserEventsRepository(_postgresContext);
 
     public async Task<int> CommitAsync()
     {
