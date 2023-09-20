@@ -15,7 +15,7 @@ namespace Business.Services
 {
     public class CommentService : BaseService<Comment, CommentInfoDto, int>, ICommentService
     {
-        public CommentService(IMapperHelper mapperHelper, IRepository<Comment, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public CommentService(IMapperHelper mapperHelper, IUnitOfWork unitOfWork) : base(mapperHelper, unitOfWork.Comment, unitOfWork)
         {
         }
     }

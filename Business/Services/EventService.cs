@@ -15,7 +15,7 @@ namespace Business.Services
 {
     public class EventService : BaseService<Events, EventsInfoDto, int>,IEventService
     {
-        public EventService(IMapperHelper mapperHelper, IRepository<Events, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public EventService(IMapperHelper mapperHelper,  IUnitOfWork unitOfWork) : base(mapperHelper, unitOfWork.Events, unitOfWork)
         {
         }
     }

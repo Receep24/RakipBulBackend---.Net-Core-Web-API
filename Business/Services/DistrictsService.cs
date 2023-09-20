@@ -15,7 +15,7 @@ namespace Business.Services
 {
     public class DistrictsService : BaseService<Districts, DistrictsInfoDto, int>, IDistrictsService
     {
-        public DistrictsService(IMapperHelper mapperHelper, IRepository<Districts, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public DistrictsService(IMapperHelper mapperHelper, IUnitOfWork unitOfWork) : base(mapperHelper, unitOfWork.Districts, unitOfWork)
         {
         }
     }

@@ -15,7 +15,7 @@ namespace Business.Services
 {
     public class UserService : BaseService<User, UserProfileDto, int>,IProfileService
     {
-        public UserService(IMapperHelper mapperHelper, IRepository<User, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public UserService(IMapperHelper mapperHelper, IUnitOfWork unitOfWork) : base(mapperHelper, unitOfWork.Users, unitOfWork)
         {
         }
     }

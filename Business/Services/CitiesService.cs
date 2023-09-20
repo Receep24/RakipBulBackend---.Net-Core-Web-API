@@ -15,7 +15,7 @@ namespace Business.Services
 {
     public class CitiesService : BaseService<Cities, CitiesInfoDto, int>, ICitiesService
     {
-        public CitiesService(IMapperHelper mapperHelper, IRepository<Cities, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public CitiesService(IMapperHelper mapperHelper, IUnitOfWork unitOfWork) : base(mapperHelper,unitOfWork.Cities, unitOfWork)
         {
         }
     }

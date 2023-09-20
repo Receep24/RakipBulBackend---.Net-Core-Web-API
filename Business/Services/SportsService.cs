@@ -15,7 +15,7 @@ namespace Business.Services
 {
     public class SportsService : BaseService<Sports, SportsInfoDto, int>, ISportsService
     {
-        public SportsService(IMapperHelper mapperHelper, IRepository<Sports, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public SportsService(IMapperHelper mapperHelper,  IUnitOfWork unitOfWork) : base(mapperHelper, unitOfWork.Sports, unitOfWork)
         {
         }
     }

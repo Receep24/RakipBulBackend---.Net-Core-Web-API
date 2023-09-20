@@ -15,7 +15,7 @@ namespace Business.Services
 {
     public class AdressService : BaseService<Adress, AdressInfoDto, int>, IAdressService
     {
-        public AdressService(IMapperHelper mapperHelper, IRepository<Adress, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public AdressService(IMapperHelper mapperHelper, IUnitOfWork unitOfWork) : base(mapperHelper, unitOfWork.Adress, unitOfWork)
         {
         }
     }

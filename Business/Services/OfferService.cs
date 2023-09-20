@@ -15,7 +15,7 @@ namespace Business.Services
 {
     public class OfferService : BaseService<Offer, OfferInfoDto, int>, IOfferService
     {
-        public OfferService(IMapperHelper mapperHelper, IRepository<Offer, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public OfferService(IMapperHelper mapperHelper,  IUnitOfWork unitOfWork) : base(mapperHelper, unitOfWork.Offer, unitOfWork)
         {
         }
     }

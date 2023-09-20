@@ -17,7 +17,7 @@ namespace Business.Services
 {
     public class AdvertService : BaseService<Advert, AdvertInfoDto, int>, IAdvertService
     {
-        public AdvertService(IMapperHelper mapperHelper, IRepository<Advert, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public AdvertService(IMapperHelper mapperHelper, IUnitOfWork unitOfWork) : base(mapperHelper, unitOfWork.Advert, unitOfWork)
         {
         }
     }

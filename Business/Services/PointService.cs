@@ -15,7 +15,7 @@ namespace Business.Services
 {
     public class PointService : BaseService<Point, PointInfoDto, int>, IPointService
     {
-        public PointService(IMapperHelper mapperHelper, IRepository<Point, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public PointService(IMapperHelper mapperHelper,  IUnitOfWork unitOfWork) : base(mapperHelper, unitOfWork.Point, unitOfWork)
         {
         }
     }
