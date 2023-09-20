@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Business.Models.Request.Update
 {
-    public class UpdateCommentDto
+    public class EventsUpdateDTO
     {
-        public string CommentText { get; set; }
+        public string EventName { get; set; }
+        public DateTime EventDate { get; set; }
 
+        public int SportID { get; set; }
         public int UserID { get; set; }
-      
+        public int AdressID { get; set; }
     }
 }

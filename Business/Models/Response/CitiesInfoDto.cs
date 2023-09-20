@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Models.Request.Update
+namespace Business.Models.Response
 {
-    public class UpdateAdressDto
+    public class CitiesInfoDto
     {
-        public string AdressName { get; set; }
-
         public int CityId { get; set; }
-        public int DistrictId { get; set; }
+        public string CityName { get; set; }
     }
 }
