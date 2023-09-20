@@ -1,4 +1,6 @@
 ﻿using Business.Services;
+using Business.Services.Base;
+using Business.Services.Base.Interface;
 using Business.Services.Interface;
 using Business.Utilities.Mapping;
 using Business.Utilities.Mapping.Interface;
@@ -18,10 +20,18 @@ public static class DependencyInjection
         serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
         serviceCollection.AddScoped<IClaimHelper, ClaimHelper>();
         serviceCollection.AddScoped<IAuthService, AuthService>();
+        serviceCollection.AddScoped<IAdressService, AdressService>();
         serviceCollection.AddScoped<IAdvertService, AdvertService>();
-        serviceCollection.AddScoped<IOfferService, OfferService>();
-        serviceCollection.AddScoped<IProfileService, ProfileService>();
+        serviceCollection.AddScoped<ICitiesService, CitiesService>();
+        serviceCollection.AddScoped<ICommentService, CommentService>();
+        serviceCollection.AddScoped<IDistrictsService, DistrictsService>();
         serviceCollection.AddScoped<IEventService, EventService>();
+        serviceCollection.AddScoped<IOfferService, OfferService>();
+        serviceCollection.AddScoped<IPointService, PointService>();
+        serviceCollection.AddScoped<IProfileService, ProfileService>();
+        serviceCollection.AddScoped<ISportsService, SportsService>();
+        serviceCollection.AddScoped<IUserEventsService, UserEventsService>();
+
 
     }
 
