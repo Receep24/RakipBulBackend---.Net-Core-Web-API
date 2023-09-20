@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 
 namespace Business.Services
 {
-    public class ProfileService : BaseService<User, UserProfileDto, int>,IProfileService
+    public class UserService : BaseService<User, UserProfileDto, int>,IProfileService
     {
-        public ProfileService(IMapperHelper mapperHelper, IRepository<User, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
+        public UserService(IMapperHelper mapperHelper, IRepository<User, int> repository, IUnitOfWork unitOfWork) : base(mapperHelper, repository, unitOfWork)
         {
         }
     }

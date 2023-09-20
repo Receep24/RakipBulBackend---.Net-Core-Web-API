@@ -9,9 +9,9 @@ using Web.Controllers.Base;
 
 namespace Web.Controllers
 {
-    public class EventsController : BaseCRUDController<Events, int, CreateEventDto, UpdateEventDto, ShowEventsDto>
+    public class EventsController : BaseCRUDController<Events, int, CreateEventDto, EventsUpdateDTO, EventsInfoDto>
     {
-        public EventsController(IBaseService<Events, ShowEventsDto, int> service) : base(service)
+        public EventsController(IBaseService<Events, EventsInfoDto, int> service) : base(service)
         {
         }
     }

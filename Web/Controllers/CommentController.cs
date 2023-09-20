@@ -11,5 +11,8 @@ namespace Web.Controllers
 {
     public class CommentController : BaseCRUDController<Comment, int, CreateCommentDto, CommentUpdateDTO, CommentInfoDto>
     {
+        public CommentController(IBaseService<Comment, CommentInfoDto, int> service) : base(service)
+        {
+        }
     }
 }
