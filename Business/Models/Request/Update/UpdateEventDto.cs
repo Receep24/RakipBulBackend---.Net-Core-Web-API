@@ -8,5 +8,8 @@ namespace Business.Models.Request.Update
 {
     public class UpdateEventDto
     {
+        public string EventName { get; set; }
+        public DateTime EventDate { get; set; }
+
     }
 }
