@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Business.Models.Request.Update
 {
-    public class UpdateAdvertDto
+    public class AdressUpdateDTO
     {
-        public string AdvertText { get; set; }
+        public string AdressName { get; set; }
 
+        public int CityId { get; set; }
+        public int DistrictId { get; set; }
     }
 }

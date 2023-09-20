@@ -11,7 +11,7 @@ namespace Business.Models.Request.Create
         public string CommentText { get; set; }
 
         public int UserID { get; set; }
-        
+        public int EventID { get; set; }
 
     }
 }
