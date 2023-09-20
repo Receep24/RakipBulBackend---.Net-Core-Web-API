@@ -9,7 +9,7 @@ using Web.Controllers.Base;
 
 namespace Web.Controllers
 {
-    public class CommentController 
+    public class CommentController : BaseCRUDController<Comment, int, CreateCommentDto, CommentUpdateDTO, CommentInfoDto>
     {
     }
 }

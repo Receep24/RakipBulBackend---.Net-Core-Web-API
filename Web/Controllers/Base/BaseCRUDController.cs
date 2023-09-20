@@ -14,13 +14,8 @@ namespace Web.Controllers.Base
      where TUpdateDTO : class
      where TResponseDto : class
     {
-        protected readonly IBaseService<TEntity, TResponseDto, TId> _service;
 
-    where TEntity : class
-    where TCreateDTO : class
-    where TUpdateDTO : class
-    where TResponseDto : class
-    {
+    
         protected readonly IBaseService<TEntity, TResponseDto, TId> _service;
 
         public BaseCRUDController(IBaseService<TEntity, TResponseDto, TId> service)

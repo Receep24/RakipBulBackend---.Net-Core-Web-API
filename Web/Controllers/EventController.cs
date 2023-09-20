@@ -11,9 +11,9 @@ using Business.Services.Base.Interface;
 namespace Web.Controllers
 {
 
-    public class EventController : BaseCRUDController<Events, int, CreateEventDto, UpdateEventDto, ShowEventsDto>
+    public class EventController : BaseCRUDController<Events, int, CreateEventDto, EventsUpdateDTO, EventsInfoDto>
     {
-        public EventController(IBaseService<Events, ShowEventsDto, int> service) : base(service)
+        public EventController(IBaseService<Events, EventsInfoDto, int> service) : base(service)
         {
         }
     }

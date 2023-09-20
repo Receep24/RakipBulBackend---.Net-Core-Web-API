@@ -8,10 +8,11 @@ using Infrastructure.Data.Postgres.Entities;
 using Web.Controllers.Base;
 
 namespace Web.Controllers
-
-
 {
-    public class AdressController 
+    public class AdressController : BaseCRUDController<Adress, int, CreateAdressDto, AdressUpdateDTO, AdressInfoDto>
     {
+        public AdressController(IBaseService<Adress, AdressInfoDto, int> service) : base(service)
+        {
+        }
     }
 }
