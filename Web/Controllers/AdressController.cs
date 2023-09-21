@@ -11,7 +11,7 @@ namespace Web.Controllers
 {
     public class AdressController : BaseCRUDController<Adress, int, CreateAdressDto, AdressUpdateDTO, AdressInfoDto>
     {
-        public AdressController(IBaseService<Adress, AdressInfoDto, int> service) : base(service)
+        public AdressController(IAdressService service) : base(service)
         {
         }
     }

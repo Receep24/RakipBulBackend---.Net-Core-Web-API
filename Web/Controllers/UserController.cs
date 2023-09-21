@@ -11,7 +11,7 @@ namespace Web.Controllers
 {
     public class UserController : BaseCRUDController<User, int, RegisterDto, UserProfileUpdateDto, UserProfileDto>
     {
-        public UserController(IBaseService<User, UserProfileDto, int> service) : base(service)
+        public UserController(IProfileService service) : base(service)
         {
         }
     }

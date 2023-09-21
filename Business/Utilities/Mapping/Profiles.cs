@@ -11,43 +11,43 @@ public class Profiles : AutoMapper.Profile
     {
         //Create
         CreateMap<RegisterDto, User>();
-        CreateMap<CreateAdressDto, User>();
-        CreateMap<CreateAdvertDto, User>();
-        CreateMap<CreateCitiesDto, User>();
-        CreateMap<CreateCommentDto, User>();
+        CreateMap<CreateAdressDto, Adress>();
+        CreateMap<CreateAdvertDto, Advert>();
+        CreateMap<CreateCitiesDto, Cities>();
+        CreateMap<CreateCommentDto, Comment>();
         CreateMap<CreateDistrictsDto, User>();
-        CreateMap<CreateEventDto, User>();
-        CreateMap<CreateOfferDto, User>();
-        CreateMap<CreatePointDto, User>();
-        CreateMap<CreateSportsDto, User>();
+        CreateMap<CreateEventDto, Events>();
+        CreateMap<CreateOfferDto, Offer>();
+        CreateMap<CreatePointDto, Point>();
+        CreateMap<CreateSportsDto, Sports>();
         CreateMap<CreateUserEvent, User>();
        
 
         //update                                                         
-        CreateMap<AdressUpdateDTO, User>();
-        CreateMap<AdvertUpdateDTO, User>();
-        CreateMap<CitiesUpdateDTO, User>();
-        CreateMap<CommentUpdateDTO, User>();
-        CreateMap<EventsUpdateDTO, User>();
-        CreateMap<OfferUpdateDTO, User>();
-        CreateMap<PointUpdateDTO, User>();
-        CreateMap<SportsUpdateDTO, User>();
-        CreateMap<UserEventUpdateDTO, User>();
+        CreateMap<AdressUpdateDTO, Adress>();
+        CreateMap<AdvertUpdateDTO, Advert>();
+        CreateMap<CitiesUpdateDTO, Cities>();
+        CreateMap<CommentUpdateDTO, Comment>();
+        CreateMap<EventsUpdateDTO, Events>();
+        CreateMap<OfferUpdateDTO, Offer>();
+        CreateMap<PointUpdateDTO, Point>();
+        CreateMap<SportsUpdateDTO, Sports>();
+        CreateMap<UserEventUpdateDTO, UserEvents>();
         CreateMap<UserProfileUpdateDto, User>();
       
 
 
         //responsse                                                      
-        CreateMap<User, AdressInfoDto>();
-        CreateMap<User, AdvertInfoDto>();
-        CreateMap<User, CitiesInfoDto>();
-        CreateMap<User, CommentInfoDto>();
-        CreateMap<User, DistrictsInfoDto>();
-        CreateMap<User, EventsInfoDto>();
-        CreateMap<User, OfferInfoDto>();
-        CreateMap<User, PointInfoDto>();
-        CreateMap<User, SportsInfoDto>();
-        CreateMap<User, UserEventsInfoDto>();
+        CreateMap<Adress, AdressInfoDto>();
+        CreateMap<Advert, AdvertInfoDto>();
+        CreateMap<Cities, CitiesInfoDto>();
+        CreateMap<Comment, CommentInfoDto>();
+        CreateMap<Districts, DistrictsInfoDto>();
+        CreateMap<Events, EventsInfoDto>();
+        CreateMap<Offer, OfferInfoDto>();
+        CreateMap<Point, PointInfoDto>();
+        CreateMap<Sports, SportsInfoDto>();
+        CreateMap<UserEvents, UserEventsInfoDto>();
         CreateMap<User, UserProfileDto>();
 
 

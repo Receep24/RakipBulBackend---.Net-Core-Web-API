@@ -1,4 +1,5 @@
-﻿using Business.Services;
+﻿using Business.Models.Response;
+using Business.Services;
 using Business.Services.Base;
 using Business.Services.Base.Interface;
 using Business.Services.Interface;
@@ -10,6 +11,7 @@ using Business.Utilities.Validation;
 using Business.Utilities.Validation.Interface;
 using Core.Utilities.Mail;
 using Infrastructure.Data.Postgres;
+using Infrastructure.Data.Postgres.Entities;
 
 namespace Web.Utilities;
 
@@ -31,8 +33,6 @@ public static class DependencyInjection
         serviceCollection.AddScoped<IProfileService, UserService>();
         serviceCollection.AddScoped<ISportsService, SportsService>();
         serviceCollection.AddScoped<IUserEventsService, UserEventsService>();
-
-
     }
 
     public static void AddMySingleton(this IServiceCollection serviceCollection)
