@@ -4,6 +4,7 @@ using Business.Models.Response;
 using Business.Services.Interface;
 using Business.Utilities.Security.Auth.Jwt;
 using Core.Results;
+using Infrastructure.Data.Postgres.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Web.Controllers.Base;
 using Web.Filters;
@@ -12,11 +13,11 @@ namespace Web.Controllers;
 
 public class AuthController : BaseController
 {
-    private readonly IAuthService _authService;
+    private readonly IAuthService _authService; 
 
     public AuthController(IAuthService authService)
     {
-        _authService = authService;
+        _authService = authService;      
     }
 
     [HttpPost]
@@ -28,7 +29,6 @@ public class AuthController : BaseController
         => await _authService.Register(registerDto);
 
     [HttpGet]
-    [Authorize]
     public async Task<ActionResult<DataResult<UserProfileDto>>> GetProfileInfo()
         => await _authService.GetUserProfileInfo();
 

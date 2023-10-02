@@ -1,14 +1,11 @@
 ﻿using Business.Services.Base.Interface;
 using Core.Results;
-
 using Microsoft.AspNetCore.Http;
-
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Base
 {
     public abstract class BaseCRUDController<TEntity, TId, TCreateDTO, TUpdateDTO, TResponseDto> : BaseController
-
      where TEntity : class
      where TCreateDTO : class
      where TUpdateDTO : class
