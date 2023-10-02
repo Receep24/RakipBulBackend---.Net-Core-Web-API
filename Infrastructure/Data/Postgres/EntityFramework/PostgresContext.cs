@@ -114,6 +114,7 @@ public class PostgresContext : DbContext
               new Cities { CityId = 80, CityName = "Osmaniye" },
               new Cities { CityId = 81, CityName = "Düzce" }
               );
+        
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

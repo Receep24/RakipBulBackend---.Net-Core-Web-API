@@ -19,6 +19,7 @@ public class UserConfiguration : BaseConfiguration<User,int>
         builder.Property(u => u.PasswordHash).IsRequired();
         builder.Property(u => u.UserType).IsRequired();
         builder.Property(u => u.Gender).IsRequired();
+        builder.Property(u => u.UserImage);
 
 
         builder.HasMany(e => e.ParticipatedEvents)
