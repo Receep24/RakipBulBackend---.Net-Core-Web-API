@@ -12,5 +12,9 @@ namespace Business.Models.Response
         public int UserID { get; set; }
         public int SportID { get; set; }
         public int AdressID { get; set; }
+
+        public AdressInfoDto Adress { get; set; }
+        public SportsInfoDto Sport { get; set; }
+        public UserProfileDto User { get; set; }
     }
 }

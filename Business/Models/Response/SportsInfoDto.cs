@@ -8,7 +8,8 @@ namespace Business.Models.Response
 {
     public class SportsInfoDto
     {
-        public int SportName { get; set; }
+        public int Id { get; set; } 
+        public string SportName { get; set; }
         public string SportImage { get; set; }
     }
 }
