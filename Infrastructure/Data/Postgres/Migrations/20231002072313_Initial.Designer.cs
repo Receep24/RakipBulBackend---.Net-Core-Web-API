@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Data.Postgres.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    [Migration("20230928111813_Initial")]
+    [Migration("20231002072313_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -777,7 +777,6 @@ namespace Infrastructure.Data.Postgres.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("UserImage")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("UserName")

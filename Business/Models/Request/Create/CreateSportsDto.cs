@@ -8,7 +8,7 @@ namespace Business.Models.Request.Create
 {
     public class CreateSportsDto
     {
-        public int SportName { get; set; }
+        public string SportName { get; set; }
         public string SportImage { get; set; }
     }
 }
