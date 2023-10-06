@@ -12,9 +12,11 @@ namespace Infrastructure.Data.Postgres.Entities
     {
         public string CommentText { get; set; }
 
-        public int UserID { get; set; }
-        public int EventID { get; set; }
+        public int UserID { get; set; } 
+        public int EventID { get; set; } 
         public User User { get; set; }
         public Events Events { get; set; }
+
+
     }
 }

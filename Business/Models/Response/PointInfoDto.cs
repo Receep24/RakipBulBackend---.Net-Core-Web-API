@@ -8,8 +8,8 @@ namespace Business.Models.Response
 {
     public class PointInfoDto
     {
+        public int Id { get; set; }
         public int Points { get; set; }
-
         public int UserID { get; set; }
         public int EventID { get; set; }
     }

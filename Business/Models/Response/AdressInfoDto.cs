@@ -8,8 +8,8 @@ namespace Business.Models.Response
 {
     public class AdressInfoDto
     {
+        public int Id { get; set; }
         public string AdressName { get; set; }
-
         public int CityId { get; set; }
         public int DistrictId { get; set; }
     }

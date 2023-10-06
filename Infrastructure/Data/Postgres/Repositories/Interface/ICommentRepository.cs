@@ -10,6 +10,6 @@ namespace Infrastructure.Data.Postgres.Repositories.Interface
 {
     public interface ICommentRepository:IRepository<Comment,int>
     {
-
+        Task<IList<Comment>> GetByAdvertIdAsync(int id);
     }
 }
