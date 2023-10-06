@@ -9,6 +9,8 @@ public class UserProfileDto
     public string FirstName { get; set; } = default!;
     public string LastName { get; set; } = default!;
     public string Email { get; set; } = default!;
+    public string UserImage { get; set; } = default!;
+    public string PhoneNumber { get; set; } = default!;
     public UserType UserType { get; set; }
     public Gender Gender { get; set; }
     public IList<Point> Points { get; set; }

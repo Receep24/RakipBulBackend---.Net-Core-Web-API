@@ -8,6 +8,7 @@ namespace Business.Models.Response
 {
     public class AdvertInfoDto
     {
+        public int Id { get; set; }
         public string AdvertText { get; set; }
         public int UserID { get; set; }
         public int SportID { get; set; }
