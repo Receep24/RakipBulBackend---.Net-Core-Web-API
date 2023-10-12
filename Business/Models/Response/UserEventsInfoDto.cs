@@ -10,5 +10,8 @@ namespace Business.Models.Response
     {
         public int UserID { get; set; }
         public int EventID { get; set; }
+        public UserProfileDto User { get; set; }
+        public EventsInfoDto Events { get; set; }
+        
     }
 }

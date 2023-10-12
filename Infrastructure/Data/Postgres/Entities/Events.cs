@@ -8,8 +8,7 @@ namespace Infrastructure.Data.Postgres.Entities
         public string EventName { get; set; }
         public DateTime EventDate { get; set; }
 
-        public int SportID { get; set; }
-        public int UserID { get; set; }
+        public int SportID { get; set; }        
         public int AdressID { get; set; }
 
         public Sports Sports { get; set; }
@@ -17,6 +16,6 @@ namespace Infrastructure.Data.Postgres.Entities
 
         public IList<Point> Points { get; set; }
         public IList<Comment> Comments { get; set; }
-        public IList<User> Users { get; set; }
+        public IList<UserEvents> UserEvents { get; set; }
     }
 }

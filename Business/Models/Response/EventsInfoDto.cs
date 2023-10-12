@@ -12,11 +12,9 @@ namespace Business.Models.Response
         public string EventName { get; set; }
         public DateTime EventDate { get; set; }
         public int SportID { get; set; }
-        public int UserID { get; set; }
         public int AdressID { get; set; }
 
         public AdressInfoDto Adress { get; set; }
         public SportsInfoDto Sports { get; set; }
-        public UserProfileDto User { get; set; }
     }
 }

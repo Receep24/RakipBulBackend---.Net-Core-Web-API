@@ -22,9 +22,9 @@ public class UserConfiguration : BaseConfiguration<User,int>
         builder.Property(u => u.UserImage);
 
 
-        builder.HasMany(e => e.ParticipatedEvents)
-               .WithMany(u => u.Users)
-               .UsingEntity<UserEvents>();
+        builder.HasMany(u => u.UserEvents)
+             .WithOne(ue => ue.User)
+             .HasForeignKey(ue => ue.UserID);
 
         builder.HasMany(u => u.Points)
             .WithOne(p => p.User)

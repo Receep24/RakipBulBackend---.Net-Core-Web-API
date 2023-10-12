@@ -30,6 +30,8 @@ namespace Infrastructure.Data.Postgres.Repositories
                 .Include(r => r.User)
                 .Include(r => r.Sport)
                 .Include(r => r.Adress)
+                .Include(r => r.Adress.District)
+                .Include(r => r.Adress.City)
                 .ToListAsync();
 
             return adverts;

@@ -185,7 +185,6 @@ namespace Infrastructure.Data.Postgres.Migrations
                     EventName = table.Column<string>(type: "text", nullable: false),
                     EventDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     SportID = table.Column<int>(type: "integer", nullable: false),
-                    UserID = table.Column<int>(type: "integer", nullable: false),
                     AdressID = table.Column<int>(type: "integer", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
@@ -259,7 +258,7 @@ namespace Infrastructure.Data.Postgres.Migrations
                         column: x => x.EventID,
                         principalTable: "Events",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Comment_User_UserID",
                         column: x => x.UserID,
@@ -302,12 +301,14 @@ namespace Infrastructure.Data.Postgres.Migrations
                 name: "UserEvents",
                 columns: table => new
                 {
+                    UserEventsID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserID = table.Column<int>(type: "integer", nullable: false),
                     EventID = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserEvents", x => new { x.EventID, x.UserID });
+                    table.PrimaryKey("PK_UserEvents", x => x.UserEventsID);
                     table.ForeignKey(
                         name: "FK_UserEvents_Events_EventID",
                         column: x => x.EventID,
@@ -479,6 +480,11 @@ namespace Infrastructure.Data.Postgres.Migrations
                 name: "IX_Point_UserID",
                 table: "Point",
                 column: "UserID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserEvents_EventID",
+                table: "UserEvents",
+                column: "EventID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserEvents_UserID",

@@ -20,7 +20,7 @@ public class User : Entity<int>
     public IList<Comment> Comments { get; set; }
     public IList<Advert> Adverts { get; set; }
     public IList<Offer> Offers { get; set; }
-    public IList<Events> ParticipatedEvents { get; set; }
+    public IList<UserEvents> UserEvents { get; set; }
 }
 
 

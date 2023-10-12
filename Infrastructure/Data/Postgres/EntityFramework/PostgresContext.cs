@@ -29,7 +29,7 @@ public class PostgresContext : DbContext
         modelBuilder.ApplyConfiguration(new SportsConfiguration());
         modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new UserTokenConfiguration());
-
+        modelBuilder.ApplyConfiguration(new UserEventsConfiguration());
 
         modelBuilder.Entity<Cities>().HasData(
               new Cities { CityId = 1, CityName = "Adana" },

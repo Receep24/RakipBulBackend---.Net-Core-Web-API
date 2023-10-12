@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace Business.Models.Request.Create
 {
     public class CreateUserEvent
-    {
+    {  
+        public int UserEventsID { get; set; }
         public int UserID { get; set; }
         public int EventID { get; set; }
     }

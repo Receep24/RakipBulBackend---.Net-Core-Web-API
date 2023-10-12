@@ -20,13 +20,21 @@ namespace Infrastructure.Data.Postgres.Repositories
 
         public async Task<IList<Adress>> GetAllAsync(Expression<Func<Adress, bool>>? filter = null)
         {
-            var adresses = PostgresContext.Set<Adress>();
-            return filter == null
-                ? await adresses.ToListAsync()
-                : await adresses.Where(filter)
+            IQueryable<Adress> advertQuery = PostgresContext.Set<Adress>();
+
+            if (filter != null)
+            {
+                advertQuery = advertQuery.Where(filter);
+            }
+
+            var events = await advertQuery
+                .Include(r => r.District)
+                .Include(r => r.City)
                 .ToListAsync();
+
+            return events;
         }
 
-       
+
     }
 }

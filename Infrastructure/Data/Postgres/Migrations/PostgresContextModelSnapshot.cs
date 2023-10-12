@@ -611,9 +611,6 @@ namespace Infrastructure.Data.Postgres.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("UserID")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AdressID");
@@ -790,13 +787,21 @@ namespace Infrastructure.Data.Postgres.Migrations
 
             modelBuilder.Entity("Infrastructure.Data.Postgres.Entities.UserEvents", b =>
                 {
+                    b.Property<int>("UserEventsID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserEventsID"));
+
                     b.Property<int>("EventID")
                         .HasColumnType("integer");
 
                     b.Property<int>("UserID")
                         .HasColumnType("integer");
 
-                    b.HasKey("EventID", "UserID");
+                    b.HasKey("UserEventsID");
+
+                    b.HasIndex("EventID");
 
                     b.HasIndex("UserID");
 
@@ -872,7 +877,7 @@ namespace Infrastructure.Data.Postgres.Migrations
                     b.HasOne("Infrastructure.Data.Postgres.Entities.Events", "Events")
                         .WithMany("Comments")
                         .HasForeignKey("EventID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Infrastructure.Data.Postgres.Entities.User", "User")
@@ -957,13 +962,13 @@ namespace Infrastructure.Data.Postgres.Migrations
             modelBuilder.Entity("Infrastructure.Data.Postgres.Entities.UserEvents", b =>
                 {
                     b.HasOne("Infrastructure.Data.Postgres.Entities.Events", "Event")
-                        .WithMany()
+                        .WithMany("UserEvents")
                         .HasForeignKey("EventID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Infrastructure.Data.Postgres.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("UserEvents")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1013,6 +1018,8 @@ namespace Infrastructure.Data.Postgres.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("Points");
+
+                    b.Navigation("UserEvents");
                 });
 
             modelBuilder.Entity("Infrastructure.Data.Postgres.Entities.Sports", b =>
@@ -1031,6 +1038,8 @@ namespace Infrastructure.Data.Postgres.Migrations
                     b.Navigation("Offers");
 
                     b.Navigation("Points");
+
+                    b.Navigation("UserEvents");
                 });
 #pragma warning restore 612, 618
         }

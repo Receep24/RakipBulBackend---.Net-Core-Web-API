@@ -20,7 +20,7 @@ public class Profiles : AutoMapper.Profile
         CreateMap<CreateOfferDto, Offer>();
         CreateMap<CreatePointDto, Point>();
         CreateMap<CreateSportsDto, Sports>();
-        CreateMap<CreateUserEvent, User>();
+        CreateMap<CreateUserEvent, UserEvents>();
        
 
         //update                                                         

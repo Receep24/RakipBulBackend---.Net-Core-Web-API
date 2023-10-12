@@ -1,4 +1,6 @@
-﻿namespace Business.Models.Request.Create;
+﻿using Infrastructure.Data.Postgres.Entities;
+
+namespace Business.Models.Request.Create;
 
 public class RegisterDto
 {
@@ -9,4 +11,6 @@ public class RegisterDto
     public string LastName { get; set; } = default!;
     public int Age { get; set; } = default!;
     public string PhoneNumber { get; set; } = default!;
+    public Gender Gender { get; set; }
+    public UserType UserType { get; set; } = UserType.User;
 }

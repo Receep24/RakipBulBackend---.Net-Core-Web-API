@@ -29,9 +29,15 @@ namespace Infrastructure.Data.Postgres.Repositories
             var events = await advertQuery
                 .Include(r => r.Sports)
                 .Include(r => r.Adress)
+                .Include(r => r.UserEvents)
+                .Include(r => r.Adress.District)
+                .Include(r => r.Adress.City)
                 .ToListAsync();
 
             return events;
+
+
+
         }
         public Task<IList<Events>> GetByAdvertIdAsync(int id)
         {
