@@ -12,6 +12,7 @@ namespace Business.Models.Response
         public int CityId { get; set; }
         public string DistrictName { get; set; }
 
+        public CitiesInfoDto City { get; set; }
         
     }
 }

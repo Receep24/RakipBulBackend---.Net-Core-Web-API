@@ -37,5 +37,7 @@ namespace Infrastructure.Data.Postgres.Repositories
 
             return events;
         }
+
+       
     }
 }

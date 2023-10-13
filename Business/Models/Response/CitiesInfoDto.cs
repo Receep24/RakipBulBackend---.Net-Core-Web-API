@@ -10,6 +10,6 @@ namespace Business.Models.Response
     {
         public int CityId { get; set; }
         public string CityName { get; set; }
-        DistrictsInfoDto DistrictsInfo { get; set; }
+       
     }
 }

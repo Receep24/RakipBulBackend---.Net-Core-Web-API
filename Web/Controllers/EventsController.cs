@@ -14,5 +14,6 @@ namespace Web.Controllers
         public EventsController(IEventService service) : base(service)
         {
         }
+
     }
 }

@@ -43,5 +43,32 @@ namespace Infrastructure.Data.Postgres.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public async Task AddAsync(Events entity)
+        {
+            // DateTime özelliklerini UTC'ye dönüştür
+            entity = ConvertDateTimePropertiesToUtc(entity);
+
+            await PostgresContext.Set<Events>().AddAsync(entity);
+        }
+
+        private Events ConvertDateTimePropertiesToUtc(Events entity)
+        {
+            var properties = entity.GetType().GetProperties()
+                .Where(prop => prop.PropertyType == typeof(DateTime) || prop.PropertyType == typeof(DateTime?));
+
+            foreach (var property in properties)
+            {
+                var value = (DateTime?)property.GetValue(entity);
+                if (value.HasValue)
+                {
+                    // Zaman dilimini UTC'ye dönüştür
+                    property.SetValue(entity, value.Value.ToUniversalTime());
+                }
+            }
+
+            return entity;
+        }
+
     }
 }

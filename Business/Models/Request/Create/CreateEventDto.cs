@@ -12,7 +12,6 @@ namespace Business.Models.Request.Create
         public DateTime EventDate { get; set; }
 
         public int SportID { get; set; }
-        public int UserID { get; set; }
         public int AdressID { get; set; }
     }
 }
