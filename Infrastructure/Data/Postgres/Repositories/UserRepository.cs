@@ -23,9 +23,12 @@ public class UserRepository : Repository<User, int>, IUserRepository
             query = (DbSet<User>)query.Where(filter);
         }
 
-        var users = await query.ToListAsync();
-
+        var users = await query
+            .Include(u=>u.Comments)
+            .ToListAsync();
         return users;
+        
+        
     }
 
     public Task<IList<User>> GetByUserIdAsync(int id)
