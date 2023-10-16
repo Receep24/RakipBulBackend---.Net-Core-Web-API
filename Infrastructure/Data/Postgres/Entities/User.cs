@@ -15,7 +15,7 @@ public class User : Entity<int>
     public byte[] PasswordHash { get; set; } = default!;
     public UserType UserType { get; set; }
     public Gender Gender { get; set; }
-
+    
     public IList<Point> Points { get; set; }
     public IList<Comment> Comments { get; set; }
     public IList<Advert> Adverts { get; set; }

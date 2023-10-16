@@ -14,5 +14,7 @@ namespace Web.Controllers
         public UserController(IProfileService service) : base(service)
         {
         }
+
+
     }
 }

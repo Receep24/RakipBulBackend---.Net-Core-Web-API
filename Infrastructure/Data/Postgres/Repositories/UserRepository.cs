@@ -16,11 +16,16 @@ public class UserRepository : Repository<User, int>, IUserRepository
 
     public async Task<IList<User>> GetAllAsync(Expression<Func<User, bool>>? filter = null)
     {
-        var user = PostgresContext.Set<User>();
-        return filter == null
-            ? await user.ToListAsync()
-            : await user.Where(filter)
-            .ToListAsync();
+        var query = PostgresContext.Set<User>();
+
+        if (filter != null)
+        {
+            query = (DbSet<User>)query.Where(filter);
+        }
+
+        var users = await query.ToListAsync();
+
+        return users;
     }
 
     public Task<IList<User>> GetByUserIdAsync(int id)

@@ -11,5 +11,6 @@ namespace Business.Services.Interface
 {
     public interface IDistrictsService : IBaseService<Districts,DistrictsInfoDto,int>
     {
+        IList<Districts> GetDistrictsByCityId(int cityId);
     }
 }

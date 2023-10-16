@@ -21,6 +21,8 @@ namespace Infrastructure.Data.Postgres.Repositories
         {
             IQueryable<Districts> districtQuery = PostgresContext.Set<Districts>();
 
+
+
             if (filter != null)
             {
                 districtQuery = districtQuery.Where(filter);
@@ -38,6 +40,12 @@ namespace Infrastructure.Data.Postgres.Repositories
 
             return districts;
         }
+        public IList<Districts> GetDistrictsByCityId(int cityId)
+        {
+            // Koddan bir şehir kimliği ile ilişkilendirilmiş ilçeleri sorgula ve döndür.
+            return PostgresContext.Districts.Where(d => d.CityId == cityId).ToList();
+        }
+
 
     }
 }

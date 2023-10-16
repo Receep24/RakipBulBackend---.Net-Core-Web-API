@@ -39,10 +39,7 @@ namespace Infrastructure.Data.Postgres.Repositories
 
 
         }
-        public Task<IList<Events>> GetByAdvertIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public async Task AddAsync(Events entity)
         {
@@ -70,5 +67,9 @@ namespace Infrastructure.Data.Postgres.Repositories
             return entity;
         }
 
+        public Task<IList<Events>> GetByAdvertIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
