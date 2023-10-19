@@ -45,7 +45,5 @@ public static class DependencyInjection
         serviceCollection.AddSingleton<IMailHelper, MailHelper>();
     }
 
-    public static void AddMyTransient(this IServiceCollection serviceCollection)
-    {
-    }
+    public static void AddMyTransient(this IServiceCollection serviceCollection) { }
 }

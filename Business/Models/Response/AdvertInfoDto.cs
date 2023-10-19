@@ -18,4 +18,7 @@ namespace Business.Models.Response
         public SportsInfoDto Sport { get; set; }
         public UserProfileDto User { get; set; }
     }
+
+    
+    
 }

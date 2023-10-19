@@ -18,9 +18,9 @@ namespace Business.Services.Base
         where TEntity : class
         where TResponseDto : class
     {
-        private readonly IMapperHelper _mapperHelper;
+        protected readonly IMapperHelper _mapperHelper;
         private readonly IRepository<TEntity, TId> _repository;
-        private readonly IUnitOfWork _unitOfWork;
+        protected readonly IUnitOfWork _unitOfWork;
         public BaseService(IMapperHelper mapperHelper, IRepository<TEntity, TId> repository, IUnitOfWork unitOfWork)
         {
             _mapperHelper = mapperHelper;

@@ -50,7 +50,7 @@ public class Profiles : AutoMapper.Profile
         CreateMap<UserEvents, UserEventsInfoDto>();
         CreateMap<User, UserProfileDto>();
 
-
+        CreateMap<PasswordChangeDTO, User>();
 
        
 
