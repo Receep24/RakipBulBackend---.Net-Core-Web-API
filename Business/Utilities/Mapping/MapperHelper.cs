@@ -30,4 +30,8 @@ public class MapperHelper : IMapperHelper
     {
         return _mapper.Map<TDestination>(source);
     }
+    public void Map(object? source, object? destination)
+    {
+        _mapper.Map(source, destination);
+    }
 }

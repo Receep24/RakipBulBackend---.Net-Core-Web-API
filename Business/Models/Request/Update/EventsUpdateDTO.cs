@@ -1,13 +1,12 @@
-﻿using Infrastructure.Data.Postgres.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Models.Response
+namespace Business.Models.Request.Update
 {
-    public class ShowEventsDto
+    public class EventsUpdateDTO
     {
         public string EventName { get; set; }
         public DateTime EventDate { get; set; }
@@ -15,8 +14,5 @@ namespace Business.Models.Response
         public int SportID { get; set; }
         public int UserID { get; set; }
         public int AdressID { get; set; }
-
-        public IList<Comment> Comments { get; set; }
-
     }
 }

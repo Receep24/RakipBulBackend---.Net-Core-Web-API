@@ -15,18 +15,20 @@ namespace Infrastructure.Data.Postgres.EntityFramework.Configurations
         public override void Configure(EntityTypeBuilder<Events> builder)
         {
             base.Configure(builder);
-            builder.Property(e => e.EventName)                   
-                   .IsRequired();
-            builder.Property(e => e.EventDate); 
+            builder.Property(e => e.EventName).IsRequired();
+            builder.Property(e => e.EventDate).IsRequired();
+            builder.Property(e => e.SportID).IsRequired();
+            builder.Property(e => e.AdressID).IsRequired();
+
 
             builder.HasOne(e => e.Sports)
                    .WithMany(s => s.Events)
                    .HasForeignKey(e => e.SportID)
-                   .OnDelete(DeleteBehavior.Restrict); 
+                   .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(e => e.Users)
-                   .WithMany(u => u.ParticipatedEvents)
-                   .UsingEntity<UserEvents>();
+            builder.HasMany(e => e.UserEvents)
+          .WithOne(ue => ue.Events)
+          .HasForeignKey(ue => ue.EventID);
 
             builder.HasOne(e => e.Adress)
                    .WithMany(a => a.Events)

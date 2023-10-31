@@ -23,11 +23,13 @@ namespace Infrastructure.Data.Postgres.EntityFramework.Configurations
 
             builder.HasOne(c => c.User)
                 .WithMany(u => u.Comments)
-                .HasForeignKey(u => u.UserID);
+                .HasForeignKey(u => u.UserID)
+            .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(c => c.Events)
                 .WithMany(u => u.Comments)
-                .HasForeignKey(x => x.EventID);
+                .HasForeignKey(x => x.EventID)
+            .OnDelete(DeleteBehavior.Restrict);
 
 
 

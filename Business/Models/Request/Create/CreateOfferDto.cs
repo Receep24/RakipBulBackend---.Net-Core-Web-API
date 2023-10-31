@@ -11,9 +11,16 @@ namespace Business.Models.Request.Create
     {
         public string OfferText { get; set; }
 
+
         public int AdvertID { get; set; }
         public int UserID { get; set; }
 
       
+
+
+        public int AdvertID { get; set; }
+        public int UserID { get; set; }
+
+
     }
 }

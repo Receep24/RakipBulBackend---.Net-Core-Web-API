@@ -13,5 +13,8 @@ namespace Business.Models.Request.Create
         public int UserID { get; set; }
         public int EventID { get; set; }
 
+
+
+
     }
 }

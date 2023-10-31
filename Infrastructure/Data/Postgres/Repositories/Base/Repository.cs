@@ -41,6 +41,11 @@ public abstract class Repository<TEntity, TId> : IRepository<TEntity, TId> where
         return await PostgresContext.Set<TEntity>().SingleOrDefaultAsync(filter);
     }
 
+    public virtual async Task<TEntity> GetByIdAsync(TId id)
+    {
+        return await PostgresContext.Set<TEntity>().FindAsync(id);
+    }
+
     public virtual async Task<int> GetCountAsync(Expression<Func<TEntity, bool>>? filter = null)
     {
         return filter == null
@@ -53,6 +58,11 @@ public abstract class Repository<TEntity, TId> : IRepository<TEntity, TId> where
         PostgresContext.Set<TEntity>().Remove(entity);
     }
 
+    public virtual async Task RemoveAsync(TEntity entity)
+    {
+         PostgresContext.Set<TEntity>().Remove(entity);
+    }
+
     public async void RemoveById(TId id)
     {
         var entity = await PostgresContext.Set<TEntity>().FindAsync(id);
@@ -60,6 +70,15 @@ public abstract class Repository<TEntity, TId> : IRepository<TEntity, TId> where
         if (entity != null)
         {
             Remove(entity);
+        }
+    }
+
+    public async Task RemoveByIdAsync(TId id)
+    {
+        var entity=await PostgresContext.Set<TEntity>().FindAsync(id);
+        if(entity!= null)
+        {
+            await RemoveAsync(entity);
         }
     }
 

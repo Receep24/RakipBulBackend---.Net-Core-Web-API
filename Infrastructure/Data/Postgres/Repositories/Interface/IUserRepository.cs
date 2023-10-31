@@ -5,5 +5,5 @@ namespace Infrastructure.Data.Postgres.Repositories.Interface;
 
 public interface IUserRepository : IRepository<User, int>
 {
-
+    Task<IList<User>> GetByUserIdAsync(int id);
 }

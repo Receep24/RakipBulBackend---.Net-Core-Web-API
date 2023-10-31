@@ -10,5 +10,6 @@ namespace Infrastructure.Data.Postgres.Repositories.Interface
 {
     public interface IAdvertRepository:IRepository<Advert,int>
     {
+        Task<IList<Advert>> GetByAdvertIdAsync(int id);
     }
 }

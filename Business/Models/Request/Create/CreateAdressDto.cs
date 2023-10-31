@@ -13,5 +13,7 @@ namespace Business.Models.Request.Create
         public int CityId { get; set; }
         public int DistrictId { get; set; }
 
+
+
     }
 }

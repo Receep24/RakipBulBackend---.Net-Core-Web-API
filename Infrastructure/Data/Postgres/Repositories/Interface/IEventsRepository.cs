@@ -10,6 +10,6 @@ namespace Infrastructure.Data.Postgres.Repositories.Interface
 {
     public interface IEventsRepository:IRepository<Events,int>
     {
-
+        Task<IList<Events>> GetByAdvertIdAsync(int id);
     }
 }

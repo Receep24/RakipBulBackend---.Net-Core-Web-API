@@ -16,5 +16,6 @@ namespace Infrastructure.Data.Postgres.Repositories
         {
 
         }
+
     }
 }
